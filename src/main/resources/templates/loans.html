@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="fr" layout:decorate="~{layout.html}" xmlns="http://www.w3.org/1999/html"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Prêt</title>
+</head>
+<body>
+<main class="container-fluid w-75" layout:fragment="content">
+    <div class="card mt-5">
+        <div class="card-header h3">Prêt en cours</div>
+        <div class="card-body">
+            <table class="table table-striped text-center">
+                <thead>
+                <tr>
+                    <th>Titre</th>
+                    <th>Auteur</th>
+                    <th>Date d'emprunt</th>
+                    <th>Date de retour</th>
+                    <th>Prolonger</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="loan : ${loans}">
+                    <td class="align-middle" th:utext="*{loan.title}"></td>
+                    <td class="align-middle" th:utext="*{loan.author}"></td>
+                    <td class="align-middle" th:text="*{loan.loanDate}"></td>
+                    <td class="align-middle" th:utext="*{loan.dueDate}"></td>
+                    <td><a class="btn btn-dark rounded" role="button"
+                           th:href="@{'/loan/' + ${loan.loanId} + '/extend'}" th:if="*{!loan.getExtendedLoan()}">Prolonger</a>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</main>
+</body>
