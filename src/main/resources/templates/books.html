@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="fr" layout:decorate="~{layout.html}" xmlns="http://www.w3.org/1999/html"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Catalogue</title>
+</head>
+<body>
+<main class="container-fluid w-75" layout:fragment="content">
+    <div class="card mt-5">
+        <div class="card-header h3">Livres de la bibliothèque</div>
+        <div class="card-body">
+            <table class="table table-striped text-center">
+                <thead>
+                <tr>
+                    <th>Titre</th>
+                    <th>Auteur</th>
+                    <th>Type</th>
+                    <th>Disponibilité</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="book : ${books}">
+                    <td class="align-middle" th:utext="*{book.title}"></td>
+                    <td class="align-middle" th:utext="*{book.author}"></td>
+                    <td class="align-middle" th:text="*{book.type}"></td>
+                    <td class="align-middle" th:utext="*{book.nbAvailable + ' / ' + book.nbCopy}"></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</main>
+</body>
+
