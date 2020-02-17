@@ -22,10 +22,10 @@
 	<dependencies>
 		<!-- Begin of dependencies from Spring Initializr -->
 		<!-- Spring Web, Spring Security, Thymeleaf, OpenFeign, Lombok -->
-		<!-- dependency>
+		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-security</artifactId>
-		</dependency -->
+		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-thymeleaf</artifactId>
@@ -55,17 +55,23 @@
 				</exclusion>
 			</exclusions>
 		</dependency>
-		<!-- dependency>
+		<dependency>
 			<groupId>org.springframework.security</groupId>
 			<artifactId>spring-security-test</artifactId>
 			<scope>test</scope>
-		</dependency -->
+		</dependency>
 		<!-- End of dependencies from Spring Initializr -->
 
 		<!-- Adding layout webpage management via Thymeleaf -->
 		<dependency>
 			<groupId>nz.net.ultraq.thymeleaf</groupId>
 			<artifactId>thymeleaf-layout-dialect</artifactId>
+		</dependency>
+
+		<!-- Adding security extras for Thymeleaf -->
+		<dependency>
+			<groupId>org.thymeleaf.extras</groupId>
+			<artifactId>thymeleaf-extras-springsecurity5</artifactId>
 		</dependency>
 
 		<!-- Beginning of Bootstrap dependencies for CSS (Responsive web site) see https://getbootstrap.com/docs/4.0/getting-started/introduction/ -->

@@ -3,6 +3,7 @@ package fr.nlco.biblioc.bibliocweb.controller;
 import fr.nlco.biblioc.bibliocweb.model.Loan;
 import fr.nlco.biblioc.bibliocweb.proxies.BibliocapiProxy;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -32,7 +33,8 @@ public class LoanController {
      */
     @GetMapping("/loans")
     public String getMemberLoans(Model model) {
-        List<Loan> loans = _BibliocapiProxy.getMemberLoans("2020020801");
+        String memberNumber = SecurityContextHolder.getContext().getAuthentication().getName();
+        List<Loan> loans = _BibliocapiProxy.getMemberLoans(memberNumber);
         model.addAttribute("loans", loans);
         return "loans";
     }
