@@ -11,8 +11,9 @@
 	<groupId>fr.nlco.biblioc</groupId>
 	<artifactId>bibliocweb</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
+	<packaging>war</packaging>
 	<name>bibliocweb</name>
-	<description>Demo project for Spring Boot</description>
+	<description>Partie web du projet BibliOC</description>
 
 	<properties>
 		<java.version>1.8</java.version>
