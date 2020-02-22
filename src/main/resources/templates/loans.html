@@ -4,35 +4,33 @@
       xmlns:th="http://www.thymeleaf.org">
 <head>
     <title>Prêt</title>
+    <link href="/webjars/bootstrap-table/1.15.5/bootstrap-table.css" rel="stylesheet">
 </head>
 <body>
 <main class="container-fluid w-75" layout:fragment="content">
-    <div class="card mt-5">
-        <div class="card-header h3">Prêt en cours</div>
-        <div class="card-body">
-            <table class="table table-striped text-center">
-                <thead>
-                <tr>
-                    <th>Titre</th>
-                    <th>Auteur</th>
-                    <th>Date d'emprunt</th>
-                    <th>Date de retour</th>
-                    <th>Prolonger</th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr th:each="loan : ${loans}">
-                    <td class="align-middle" th:utext="*{loan.title}"></td>
-                    <td class="align-middle" th:utext="*{loan.author}"></td>
-                    <td class="align-middle" th:text="*{loan.loanDate}"></td>
-                    <td class="align-middle" th:utext="*{loan.dueDate}"></td>
-                    <td><a class="btn btn-dark rounded" role="button"
-                           th:href="@{'/loan/' + ${loan.loanId} + '/extend'}" th:if="*{!loan.getExtendedLoan()}">Prolonger</a>
-                    </td>
-                </tr>
-                </tbody>
-            </table>
-        </div>
-    </div>
+    <div class="h2 mt-5 border-bottom">Prêt en cours</div>
+    <table data-classes="table table-striped table-hover" data-locale="fr-FR" data-search="true"
+           data-sort-name="dueDate" data-sort-order="desc" data-toggle="table">
+        <thead>
+        <tr>
+            <th data-align="center" data-halign="center" data-sortable="true">Titre</th>
+            <th data-align="center" data-halign="center" data-sortable="true">Auteur</th>
+            <th data-align="center" data-halign="center" data-sortable="true">Date d'emprunt</th>
+            <th data-align="center" data-field="dueDate" data-halign="center" data-sortable="true">Date de retour</th>
+            <th data-align="center" data-halign="center">Prolonger</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="loan : ${loans}">
+            <td th:utext="*{loan.title}"></td>
+            <td th:utext="*{loan.author}"></td>
+            <td th:text="*{loan.loanDate}"></td>
+            <td th:utext="*{loan.dueDate}"></td>
+            <td><a class="btn btn-dark rounded" role="button" th:href="@{'/loan/' + ${loan.loanId} + '/extend'}"
+                   th:if="*{!loan.getExtendedLoan()}">Prolonger</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
 </main>
 </body>
