@@ -87,6 +87,15 @@
 			<version>3.4.1</version>
 		</dependency>
 		<!-- End of Bootstrap dependencies for CSS (Responsive web site) see https://getbootstrap.com/docs/4.0/getting-started/introduction/ -->
+
+		<!-- Adding a table templating  -->
+		<!-- https://mvnrepository.com/artifact/org.webjars/bootstrap-table -->
+		<dependency>
+			<groupId>org.webjars</groupId>
+			<artifactId>bootstrap-table</artifactId>
+			<version>1.15.5</version>
+		</dependency>
+
 	</dependencies>
 
 	<dependencyManagement>

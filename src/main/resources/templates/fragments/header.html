@@ -26,8 +26,8 @@
             <div th:if="${#authorization.expression('!isAuthenticated()')}">
                 <a class="btn btn-outline-success" role="button" th:href="@{/login}">Se Loguer</a>
             </div>
-            <div class="d-flex align-content-center" th:if="${#authorization.expression('isAuthenticated()')}">
-                <span class="h5 text-success mr-3" th:utext="${#request.getRemoteUser()}"></span>
+            <div class="d-flex align-items-center" th:if="${#authorization.expression('isAuthenticated()')}">
+                <div class="h5 text-success m-0 mr-3" th:utext="${#request.getRemoteUser()}"></div>
                 <button class="btn btn-outline-success" onclick="document.forms['logoutForm'].submit()" type="button">Se déconnecter</button>
             </div>
         </div>
