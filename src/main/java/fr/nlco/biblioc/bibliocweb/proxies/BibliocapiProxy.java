@@ -2,11 +2,11 @@ package fr.nlco.biblioc.bibliocweb.proxies;
 
 import fr.nlco.biblioc.bibliocweb.model.Book;
 import fr.nlco.biblioc.bibliocweb.model.Loan;
+import fr.nlco.biblioc.bibliocweb.model.LoanR2;
 import fr.nlco.biblioc.bibliocweb.model.Member;
 import org.springframework.cloud.openfeign.FeignClient;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -40,11 +40,29 @@ public interface BibliocapiProxy {
     Void extendLoan(@PathVariable("loanId") Integer loanId);
 
     /**
-     * Récupération des cedentials du membre
+     * Récupération des credentials du membre
      *
      * @param memberNumber identifiant de l'usager
      * @return les cedentials de l'usager
      */
     @GetMapping("member/{memberNumber}")
     Member getMemberAuthByMemberNumber(@PathVariable("memberNumber") String memberNumber);
+
+    /**
+     * Fonction pour le release 2 : reservation
+     *
+     * @param loan info pour le prêt
+     * @return ResponseEntity
+     */
+    @PostMapping("/loan")
+    ResponseEntity<Void> addLoan(@RequestBody LoanR2 loan);
+
+    /**
+     * Fonction pour le release 2 : retour
+     *
+     * @param loanId id du prêt
+     * @return ResponseEntity
+     */
+    @DeleteMapping("/loan/{loanId}/return")
+    ResponseEntity<Void> returnLoan(@PathVariable("loanId") Integer loanId);
 }
