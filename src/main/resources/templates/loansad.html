@@ -15,6 +15,7 @@
         <tr>
             <th data-align="center" data-halign="center" data-sortable="true">Titre</th>
             <th data-align="center" data-halign="center" data-sortable="true">Auteur</th>
+            <th data-align="center" data-halign="center" data-sortable="true">Bibliothèque</th>
             <th data-align="center" data-halign="center" data-sortable="true">Date d'emprunt</th>
             <th data-align="center" data-field="dueDate" data-halign="center" data-sortable="true">Date de retour</th>
             <th data-align="center" data-halign="center">Prolonger</th>
@@ -24,6 +25,7 @@
         <tr th:each="loan : ${loans}">
             <td th:utext="*{loan.title}"></td>
             <td th:utext="*{loan.author}"></td>
+            <td th:utext="*{loan.library}"></td>
             <td th:text="*{loan.loanDate}"></td>
             <td th:utext="*{loan.dueDate}"></td>
             <td><a class="btn btn-dark rounded" role="button" th:href="@{'/loan/' + ${loan.loanId} + '/extend'}"

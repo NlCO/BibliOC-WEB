@@ -19,20 +19,8 @@ public class Loan implements Serializable {
     private Date loanDate;
     private Date dueDate;
     private Boolean extendedLoan;
+    private String library;
 
     public Loan() {
-    }
-
-    @Override
-    public String toString() {
-        return "Loan{" +
-                "loanId=" + loanId +
-                ", title='" + title + '\'' +
-                ", author='" + author + '\'' +
-                ", type='" + type + '\'' +
-                ", loanDate=" + loanDate +
-                ", dueDate=" + dueDate +
-                ", extendedLoan=" + extendedLoan +
-                '}';
     }
 }

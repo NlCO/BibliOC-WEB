@@ -4,6 +4,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 import java.io.Serializable;
+import java.util.Map;
 
 /**
  * Model représentant un Livres
@@ -16,18 +17,8 @@ public class Book implements Serializable {
     private String type;
     private Integer nbCopy;
     private Integer nbAvailable;
+    private Map<String, Long> availabilityByLibrary;
 
     public Book() {
-    }
-
-    @Override
-    public String toString() {
-        return "Book{" +
-                "title='" + title + '\'' +
-                ", author='" + author + '\'' +
-                ", type='" + type + '\'' +
-                ", nbCopy=" + nbCopy +
-                ", nbAvailable=" + nbAvailable +
-                '}';
     }
 }
