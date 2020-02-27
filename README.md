@@ -38,3 +38,4 @@ Au choix :
 3.Accès
 
 L'application est accessible par http://localhost:8080/
+L'API en mode dev contient 4 membres (2020020801, 2020020802, 2020020803 et 2020020804) ayants pour password : azertyui. 
