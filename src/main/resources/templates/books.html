@@ -24,7 +24,11 @@
             <td th:utext="*{book.title}"></td>
             <td th:utext="*{book.author}"></td>
             <td th:text="*{book.type}"></td>
-            <td th:utext="*{book.nbAvailable + ' / ' + book.nbCopy}"></td>
+            <td>
+                <div th:each="entry: *{book.getAvailabilityByLibrary()}">
+                    <span th:utext="${entry.key + ' : ' + entry.value}"></span>
+                </div>
+            </td>
         </tr>
         </tbody>
     </table>
